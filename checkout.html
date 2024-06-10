@@ -1,0 +1,668 @@
+<!DOCTYPE html> 
+<html lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+      
+        body {
+           display: flex;
+           flex-direction: column;
+           margin: 0;
+           font-family: Georgia, 'Times New Roman', Times, serif;
+           background-color: #FFFFF0;
+           position: relative; 
+           min-height: 100vh; 
+        }
+
+        h1{
+          color: #B0C4DE;
+        }
+         /* navigation bar */
+         .topnav {
+           overflow: hidden;
+           background-color: #B0C4DE;
+           color: #B0C4DE;
+           position: relative;
+        } 
+
+        .topnav #myLinks {
+           display: none;
+        }
+
+        .topnav a {
+           color: black;
+           padding: 14px 16px;
+           text-align: center;
+           text-decoration: none;
+           font-size: 17px;
+           display: block;
+        }
+
+
+        .topnav a.icon {
+           background: #B0C4DE;
+           display: block;
+           position: absolute;
+           right: 10;
+           top: 0;
+        }
+
+        .topnav .cart-icon {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+        
+        .topnav a:hover {
+           background-color: white;
+           color: black;
+        }
+        
+        .active{
+           background-color: #B0C4DE;
+           color: #B0C4DE;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .header {
+            background: #50b3a2;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .checkout {
+            background: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .checkout h2 {
+            margin: 0 0 20px;
+        }
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .tabs button {
+            flex: 1;
+            padding: 10px;
+            cursor: pointer;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-bottom: none;
+        }
+        .tabs button.active {
+            background: #fff;
+            border-bottom: 2px solid #50b3a2;
+        }
+        .tab-content {
+            display: none;
+            border: 1px solid #ddd;
+            padding: 20px;
+            background: #fff;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group input[type="radio"] {
+            width: auto;
+        }
+        .checkout ul {
+            list-style: none;
+            padding: 0;
+        }
+        .checkout ul li {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .checkout #checkout-total {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .checkout .place-order-btn {
+            background: #50b3a2;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .checkout .place-order-btn:hover {
+            background: #3d8b81;
+        }
+   /* The contact us section*/
+   .container {
+            display: flex;
+            justify-content: space-around;
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            margin-bottom: 20px;
+        }
+        .column {
+            flex: 1;
+            margin: 0 10px;
+        }
+        .column h2 {
+            margin-bottom: 10px;
+            font-size: 1.5em;
+            color: #333;
+        }
+        .column p, .column a {
+            margin: 5px 0;
+            font-size: 1.1em;
+            color: #555;
+            text-decoration: none;
+        }
+        .column a {
+            color: black;
+        }
+        .column a:hover {
+            text-decoration: underline;
+            color: #B0C4DE; 
+        }
+
+     /* The Modal (background) */
+     .modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.column label { 
+  font-family: inherit; 
+  font-size: inherit;
+}
+.myform{
+		position: relative;
+		display: flex;
+		margin: 0 auto;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		width: auto;
+		pointer-events: auto;
+		color: #B0C4DE;
+		border: 1px solid rgba(0,0,0,.2);
+		outline: 0;
+		max-width: 500px;
+        justify-content: center;
+		 }
+        
+         .tx-tfm{
+         text-transform:uppercase;
+         }
+         .mybtn{
+         border-radius:50px;
+         }
+        
+         .login-or {
+         position: relative;
+         color: #aaa;
+         margin-top: 10px;
+         margin-bottom: 10px;
+         padding-top: 10px;
+         padding-bottom: 10px;
+         }
+         .span-or {
+         display: block;
+         position: absolute;
+         left: 50%;
+         top: -2px;
+         margin-left: -25px;
+         background-color: #fff;
+         width: 50px;
+         text-align: center;
+         }
+         .hr-or {
+         height: 1px;
+         margin-top: 0px !important;
+         margin-bottom: 0px !important;
+         }
+
+         .google {
+         color:#666;
+         width:100%;
+         height:40px;
+         text-align:center;
+         outline:none;
+         border: 1px solid lightgrey;
+         }
+          form .error {
+         color: #ff0000;
+         }
+         #second{display:none;}
+          /* Footer */
+          footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: #B0C4DE;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+     </style>
+</head>
+
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<body> 
+
+  <div class="topnav">
+    <a href="homepage.html" >glazed skincare</a>
+    <div id="myLinks">
+      <a href="skinconcern.html">Shop by skin concern</a>
+      <a href="product.html">Shop by products</a>
+      <a href="shopAll.html">Shop All</a>
+    </div>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+  
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myLinks");
+      if (x.style.display === "block") {
+        x.style.display = "none";
+      } else {
+        x.style.display = "block";
+      }
+    }
+    </script>
+
+       <div class="container">
+        <div class="checkout">
+            <div class="tabs">
+                <button class="tab-link active" data-tab="order-details">Order Details</button>
+                <button class="tab-link" data-tab="delivery-details">Delivery Details</button>
+            </div>
+            <div id="order-details" class="tab-content active">
+                <h2>Your Order</h2>
+                <ul id="checkout-items"></ul>
+                <h2>Promotion Code</h2>
+                <div class="form-group">
+                    <label for="promo-code">Enter Promo Code:</label>
+                    <input type="text" id="promo-code">
+                </div>
+                <div id="checkout-total">Total: R0.00</div>
+            </div>
+            <div id="delivery-details" class="tab-content">
+                <h2>Delivery Details</h2>
+                <div class="form-group">
+                    <label for="full-name">Full Name:</label>
+                    <input type="text" id="full-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name:</label>
+                    <input type="text" id="last-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="mobile-number">Mobile Number:</label>
+                    <input type="tel" id="mobile-number" required>
+                </div>
+                <div class="form-group">
+                    <label for="user-email">User email:</label>
+                    <input type="text" id="user-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="street-address">Street Address:</label>
+                    <input type="text" id="street-address" required>
+                </div>
+                <div class="form-group">
+                    <label for="suburb">Suburb:</label>
+                    <input type="text" id="suburb" required>
+                </div>
+                <div class="form-group">
+                    <label for="city">City:</label>
+                    <input type="text" id="city" required>
+                </div>
+                <div class="form-group">
+                    <label for="province">Province:</label>
+                    <input type="text" id="province" required>
+                </div>
+                <div class="form-group">
+                    <label for="postal-code">Postal Code:</label>
+                    <input type="text" id="postal-code" required>
+                </div>
+                <div class="form-group">
+                    <label for="billing-address">Billing Address:</label>
+                    <textarea id="billing-address" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Delivery Method:</label>
+                    <label><input type="radio" name="delivery-method" value="standard" checked> Standard (R50 if order < R500)</label>
+                    <label><input type="radio" name="delivery-method" value="same-day"> Same Day (R80 if order < R500)</label>
+                    <label><input type="radio" name="delivery-method" value="next-work-day"> Next Work Day (R65 if order < R500)</label>
+                </div>
+            </div>
+        
+            <button class="place-order-btn">Place Order</button>
+        </div>
+    </div>
+
+    <script>
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function updateCheckout() {
+            const checkoutItemsElement = document.getElementById('checkout-items');
+            checkoutItemsElement.innerHTML = '';
+
+            cart.forEach(product => {
+                const li = document.createElement('li');
+                li.textContent = `${product.name} - R${product.price.toFixed(2)}`;
+                checkoutItemsElement.appendChild(li);
+            });
+
+            const total = cart.reduce((sum, product) => sum + product.price, 0);
+            document.getElementById('checkout-total').textContent = `Total: R${total.toFixed(2)}`;
+        }
+
+        function calculateDeliveryCost(total, method) {
+            if (total < 500) {
+                switch (method) {
+                    case 'standard':
+                        return 50;
+                    case 'same-day':
+                        return 80;
+                    case 'next-work-day':
+                        return 65;
+                }
+            }
+            return 0;
+        }
+
+        function switchTab(event) {
+            const tabLinks = document.querySelectorAll('.tab-link');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            event.target.classList.add('active');
+            const activeTab = event.target.getAttribute('data-tab');
+            document.getElementById(activeTab).classList.add('active');
+        }
+
+        document.querySelectorAll('.tab-link').forEach(button => {
+            button.addEventListener('click', switchTab);
+        });
+
+        document.querySelector('.place-order-btn').addEventListener('click', () => {
+    const fullName = document.getElementById('full-name').value;
+    const lastName = document.getElementById('last-name').value;
+    const mobileNumber = document.getElementById('mobile-number').value;
+    const userEmail = document.getElementById('user-email').value;
+    const streetAddress = document.getElementById('street-address').value;
+    const suburb = document.getElementById('suburb').value;
+    const city = document.getElementById('city').value;
+    const province = document.getElementById('province').value;
+    const postalCode = document.getElementById('postal-code').value;
+    const billingAddress = document.getElementById('billing-address').value;
+    const deliveryMethod = document.querySelector('input[name="delivery-method"]:checked').value;
+    const promoCode = document.getElementById('promo-code').value;
+    const email = document.getElementById('user-email').value; // Replace this with actual user email if available
+
+    if (!fullName || !lastName || !mobileNumber || !streetAddress || !suburb || !province || !city || !postalCode || !billingAddress) {
+        alert('Please fill in all delivery details.');
+        return;
+    }
+
+    const total = cart.reduce((sum, product) => sum + product.price, 0);
+    const deliveryCost = calculateDeliveryCost(total, deliveryMethod);
+    const finalTotal = total + deliveryCost;
+
+    const orderDetails = {
+        cart,
+        fullName,
+        lastName,
+        mobileNumber,
+        streetAddress,
+        suburb,
+        province,
+        city,
+        postalCode,
+        billingAddress,
+        deliveryMethod,
+        promoCode,
+        deliveryCost,
+        finalTotal,
+        email
+    };
+
+    const orderDetailsStr = JSON.stringify(orderDetails);
+    localStorage.removeItem('cart');
+    window.location.href = `order_confirmation.html?orderDetails=${encodeURIComponent(orderDetailsStr)}`;
+});
+
+
+        updateCheckout();
+    </script>
+    
+<div class="container">
+    <div class="column">
+        <h2>Contact Us</h2>
+        <p> info@glazed.com</p>
+        <p><a  class="instagram"><i class="fa fa-instagram"></i></a><a href="https://instagram.com"> @glazed_skin</a></p>
+        <p><a  class="twitter"><i class="fa fa-twitter"></i></a> <a href="https://twitter.com">@glazed_skin</a></p>
+        <p><a  class="facebook"><i class="fa fa-facebook"></i></a> <a href="https://facebook.com">glazed_skin</a></p>
+        <p><a  class="youtube"><i class="fa fa-youtube"></i></a> <a href="https://youtube.com">glazed_skin</a></p>
+    </div>
+    <div class="column">
+        <h2>Help</h2>
+        <p><a href="faq.html">FAQ</a></p>
+        <p><a href="privacy.html">Privacy Policy</a></p>
+        <p><a href="terms.html">Terms and Conditions</a></p>
+    </div>
+    <div class="column">
+      <h2>Shopping</h2>
+      <span id="myBtn">Account</span>
+  
+      <div id="myModal" class="modal">
+          <div class="modal-content">
+              <span class="close">&times;</span>
+              <div class="container">
+                  <div class="row col-md-6 mx-auto">
+                      
+                          
+                          <div id="first">
+                              <div class="panel panel-primary">
+                                  <div class="logo mb-3">
+                                      <div class="panel-heading text-center">
+                                          <h1>Login</h1>
+                                      </div>
+                                  </div>
+                                  <div class ="panel-body">
+                                  <form action="" method="post" name="login">
+                                      <div class="form-container">
+                                          <div class="form-group">
+                                              <label for="exampleInputEmail1">Email address</label>
+                                              <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                                          </div>
+                                          <div class="form-group">
+                                              <label for="exampleInputEmail1">Password</label>
+                                              <input type="password" name="password" id="password" class="form-control" aria-describedby="emailHelp" placeholder="Enter Password">
+                                          </div>
+                                          <div class="text-center">
+                                              <button type="submit" class="btn btn-block mybtn btn-primary tx-tfm">Login</button>
+                                          </div>
+                                          <div class="text-center">
+                                              <div class="login-or">
+                                                  <hr class="hr-or">
+                                                  <span class="span-or">or</span>
+                                              </div>
+                                          </div>
+                                          <div class="text-center">
+                                              <p class="text-center">
+                                                  <a href="javascript:void();" class="google btn mybtn"><i class="fa fa-google-plus"></i> Signup using Google</a>
+                                              </p>
+                                          </div>
+                                          <div class="form-group">
+                                              <p class="text-center">Don't have an account? <a href="#" id="signup" onclick="toggleModals()">Sign up here</a></p>
+                                          </div>
+                                      </div>
+                                  </form>
+                                  </div>
+                              </div>
+                          </div>
+                          <div id="second" style="display: none;">
+                              <div class="panel panel-primary">
+                                  <div class="logo mb-3">
+                                      <div class="panel-heading text-center">
+                                          <h1>Signup</h1>
+                                      </div>
+                                  </div>
+                                  <div class = "panel-body">
+                                  <form action="#" name="registration">
+                                      <div class="form-container">
+                                          <div class="form-group">
+                                              <label for="exampleInputEmail1">First Name</label>
+                                              <input type="text" name="firstname" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Enter Firstname">
+                                          </div>
+                                          <div class="form-group">
+                                              <label for="exampleInputEmail1">Last Name</label>
+                                              <input type="text" name="lastname" class="form-control" id="lastname" aria-describedby="emailHelp" placeholder="Enter Lastname">
+                                          </div>
+                                          <div class="form-group">
+                                              <label for="exampleInputEmail1">Email address</label>
+                                              <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                                          </div>
+                                          <div class="form-group">
+                                              <label for="exampleInputEmail1">Password</label>
+                                              <input type="password" name="password" id="password" class="form-control" aria-describedby="emailHelp" placeholder="Enter Password">
+                                          </div>
+                                          <div class="form-group">
+                                              <p class="text-center">By signing up you accept our <a href="terms.html">Terms and Conditions</a></p>
+                                          </div>
+                                          <div class="text-center mb-3">
+                                              <button type="submit" class="btn btn-block mybtn btn-primary tx-tfm">Sign Up</button>
+                                          </div>
+                                          <div class="form-group">
+                                              <p class="text-center"><a href="#" id="signin" onclick="toggleModals()">Already have an account?</a></p>
+                                          </div>
+                                      </div>
+                                  </form>
+                                  </div>
+                              </div>
+                          </div>
+                      
+                  </div>
+              </div>
+          </div>
+      </div>
+              <p><a href="refund.html">Refund Policy</a></p>
+              <p><a href="shipping.html">Shipping Policy</a></p>
+          </div>
+      </div>
+  </div>
+  
+  
+  
+  <script>
+  var label = document.getElementById("myBtn");
+  var modal = document.getElementById("myModal");
+  var span = document.getElementsByClassName("close")[0];
+  
+  // Attach click event listeners
+  label.addEventListener("click", function() {
+    modal.style.display = "block";
+  });
+  
+  span.addEventListener("click", function() {
+    modal.style.display = "none";
+  });
+  
+  // Close modal if clicked outside
+  window.addEventListener("click", function(event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+  
+  function toggleModals() {
+    var loginModal = document.getElementById("first");
+    var signupModal = document.getElementById("second");
+  
+    // Hide whichever modal is currently visible and show the other one
+    if (loginModal.style.display === "none") {
+      loginModal.style.display = "block";
+      signupModal.style.display = "none";
+    } else {
+      loginModal.style.display = "none";
+      signupModal.style.display = "block";
+    }
+  }
+  
+      </script>
+      <footer>
+     
+      <p>&copy; 2024 Glazed Skincare All rights reserved.</p>
+  </footer>
+      
+      </body>
+      </html>
