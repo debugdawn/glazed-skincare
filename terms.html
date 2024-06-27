@@ -1,30 +1,74 @@
-<!DOCTYPE html> 
-<html lang="en">
+<!DOCTYPE html>
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EYZT2CV7K5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-EYZT2CV7K5');
+    </script>
+    <html lang="en">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Glazed Skin & Beauty</title>
+    <link href='https://fonts.googleapis.com/css?family=Abril Fatface' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <style>
-      
         body {
-            display: flex;
-            flex-direction: column;
             margin: 0;
             font-family: Georgia, 'Times New Roman', Times, serif;
             background-color: #FFFFF0;
-            position: relative; 
-            min-height: 100vh; 
+            position: relative;
+            min-height: 100vh;
         }
- 
+
+        h1 {
+            color: #38B6FF;
+            font-size: 40px;
+        }
+
+        h4 {
+            text-align: center;
+        }
+
         /* navigation bar */
         .topnav {
             overflow: hidden;
-            background-color: #B0C4DE;
-            color: #B0C4DE;
+            background-color: rgba(56, 182, 255, 0.5);
+            font-family: 'Abril Fatface';
+            font-size: 22px;
             position: relative;
-        } 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px;
+            z-index: 1000;
+        }
+
+        .topnav .logo {
+            margin-right: auto;
+            color: black;
+            text-decoration: none;
+        }
+
+        .topnav .right-nav {
+            display: flex;
+            align-items: center;
+        }
 
         .topnav #myLinks {
             display: none;
+            position: relative;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            top: 20px;
+            right: 10px;
+            width: 100%;
         }
 
         .topnav a {
@@ -38,234 +82,191 @@
 
 
         .topnav a.icon {
-            background: #B0C4DE;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            margin-right: 20px;
+            background: #38B6FF;
             display: block;
             position: absolute;
-            right: 10;
+            left: 10;
             top: 0;
         }
-        
+
+        .topnav .cart-icon {
+            margin-right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
         .topnav a:hover {
             background-color: white;
             color: black;
         }
-        
-        .active{
+
+        .active {
             background-color: #B0C4DE;
             color: #B0C4DE;
         }
 
-        
-        /*image gallery*/
-        .responsive {
-            padding: 0 6px;
-            width: 50%; 
-            float: none;
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
+        /*cart side bar*/
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100%;
+            background: #fff;
+            color: #000000;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            box-sizing: border-box;
+            transition: right 0.3s;
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .gallery {
-            border: none;
-            margin: 10px 0;
+        .cart-sidebar.active {
+            right: 0;
+            background-color: #fff;
         }
-               
-        .gallery {
-            border: 1px solid #ccc;
-        }
-        
-        .gallery:hover {
-            border: 0.5px solid #777;
-        }
-        
-        .gallery img {
-            width: 75%;
-            height: auto;
-        }
-        
-        .desc {
-            padding: 15px;
+
+        .cart-sidebar h2 {
+            margin: 0;
             text-align: center;
         }
-        
-        * {
-            box-sizing: border-box;
-        }
-        
-        .responsive {
-            padding: 0 6px;
-            float: left;
-            width: 24.99999%;
-        }
-        
-        @media only screen and (max-width: 700px) {
-          .responsive {
-            width: 50%;
-            margin: 2px 0;
-          }
-        }
-        
-        @media only screen and (max-width: 500px) {
-          .responsive {
-            width: 100%;
-          }
-        }
-        
-        .clearfix:after {
-            content: "";
-            display: table;
-            clear: both;
+
+        .cart-sidebar ul {
+            list-style: none;
+            padding: 0;
+            flex-grow: 1;
+            overflow-y: auto;
         }
 
-        /* for the reviews of products */
-        .checked {
-            color: goldenrod;
+        .cart-sidebar ul li {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
         }
 
-        .content {
+        .cart-sidebar ul li img {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .cart-sidebar .product-details {
             flex: 1;
+        }
+
+        .cart-sidebar .product-price {
+            font-weight: bold;
+        }
+
+        .cart-sidebar .quantity-controls {
+            display: flex;
+            align-items: center;
+        }
+
+        .cart-sidebar .quantity-controls button {
+            background: #50b3a2;
+            color: #fff;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 0 5px;
+        }
+
+        .cart-sidebar .quantity-controls button:hover {
+            background: #3d8b81;
+        }
+
+        .cart-sidebar #cart-total {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .cart-sidebar #checkout-btn {
+            width: 100%;
+            padding: 10px;
+            background: #50b3a2;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .cart-sidebar #checkout-btn:hover {
+            background: #3d8b81;
+        }
+
+        .cart-sidebar .continue-shopping {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #50b3a2;
+            text-decoration: none;
+        }
+
+        .cart-sidebar .continue-shopping:hover {
+            text-decoration: underline;
         }
 
         /* The contact us section*/
         .container {
             display: flex;
-            justify-content: space-around;
-            width: 80%;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
             background-color: #f9f9f9;
-            margin-bottom: 20px;
         }
+
+        .columns-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+        }
+
         .column {
             flex: 1;
             margin: 0 10px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
         }
+
         .column h2 {
             margin-bottom: 10px;
             font-size: 1.5em;
             color: #333;
         }
-        .column p, .column a {
+
+        .column p,
+        .column a {
             margin: 5px 0;
             font-size: 1.1em;
             color: #555;
             text-decoration: none;
         }
+
         .column a {
             color: black;
         }
+
         .column a:hover {
             text-decoration: underline;
-            color: #B0C4DE; 
+            color: #B0C4DE;
         }
 
-        /* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
-
-
-/* The Close Button */
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.column label { 
-  font-family: inherit; 
-  font-size: inherit;
-}
-.myform{
-		position: relative;
-		display: flex;
-		margin: 0 auto;
-		-ms-flex-direction: column;
-		flex-direction: column;
-		width: auto;
-		pointer-events: auto;
-		color: #B0C4DE;
-		border: 1px solid rgba(0,0,0,.2);
-		outline: 0;
-		max-width: 500px;
-        justify-content: center;
-		 }
-        
-         .tx-tfm{
-         text-transform:uppercase;
-         }
-         .mybtn{
-         border-radius:50px;
-         }
-        
-         .login-or {
-         position: relative;
-         color: #aaa;
-         margin-top: 10px;
-         margin-bottom: 10px;
-         padding-top: 10px;
-         padding-bottom: 10px;
-         }
-         .span-or {
-         display: block;
-         position: absolute;
-         left: 50%;
-         top: -2px;
-         margin-left: -25px;
-         background-color: #fff;
-         width: 50px;
-         text-align: center;
-         }
-         .hr-or {
-         height: 1px;
-         margin-top: 0px !important;
-         margin-bottom: 0px !important;
-         }
-
-         .google {
-         color:#666;
-         width:100%;
-         height:40px;
-         text-align:center;
-         outline:none;
-         border: 1px solid lightgrey;
-         }
-          form .error {
-         color: #ff0000;
-         }
-         #second{display:none;}
-          /* Footer */
-          footer {
+        /* Footer */
+        footer {
             position: absolute;
             bottom: 0;
             width: 100%;
@@ -273,128 +274,169 @@
             text-align: center;
             padding: 10px 0;
         }
-
-     </style>
+    </style>
 </head>
 
-<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
-<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<body>
 
-<body> 
 
-  <div class="topnav">
-    <a href="homepage.html" >glazed skincare</a>
-    <div id="myLinks">
-      <a href="skinconcern.html">Shop by skin concern</a>
-      <a href="product.html">Shop by products</a>
-      <a href="shopAll.html">Shop All</a>
+    <div class="topnav">
+        <a href="homepage.html" class="logo">glazed skin and beauty</a>
+        <div class="right-nav">
+            <a href="javascript:void(0);" class="shop-icon" onclick="myFunction()">Shop</a>
+            <div class="cart-icon" id="cart-icon">&#128722;</div>
+        </div>
+        <div id="myLinks">
+            <a href="shop_by_skinconcern.php">Shop by skin concern</a>
+            <a href="shop_by_product.php">Shop by products</a>
+            <a href="shop_all.php">Shop All</a>
+        </div>
     </div>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-      <i class="fa fa-bars"></i>
-    </a>
-  </div>
-  
-  <script>
-    function myFunction() {
-      var x = document.getElementById("myLinks");
-      if (x.style.display === "block") {
-        x.style.display = "none";
-      } else {
-        x.style.display = "block";
-      }
-    }
+
+    <div class="cart-sidebar" id="cart-sidebar">
+        <button class="close-btn" onclick="toggleCart()">&times;</button>
+        <h2>My Cart</h2>
+        <ul id="cart-items"></ul>
+        <div id="cart-total"></div>
+    </div>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myLinks");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
+
+        function toggleCart() {
+            var cartSidebar = document.getElementById("cart-sidebar");
+            if (cartSidebar.classList.contains("active")) {
+                cartSidebar.classList.remove("active");
+            } else {
+                cartSidebar.classList.add("active");
+            }
+        }
     </script>
-    
+
     <div class="terms-of-service">
         <h2>Terms and Conditions</h2>
-      
+
         <p>Welcome to Glazed Skincare!</p>
-      
-        <p>These terms and conditions outline the rules and regulations for the use of Glazed Skincare's Website, located at link.</p>
-      
-        <p>By accessing this website we assume you accept these terms and conditions. Do not continue to use Glazed Skincare if you do not agree to take all of the terms and conditions stated on this page.</p>
-      
+
+        <p>These terms and conditions outline the rules and regulations for the use of Glazed Skincare's Website,
+            located at link.</p>
+
+        <p>By accessing this website we assume you accept these terms and conditions. Do not continue to use Glazed
+            Skincare if you do not agree to take all of the terms and conditions stated on this page.</p>
+
         <h3>Cookies</h3>
-      
-        <p>We employ the use of cookies. By accessing Glazed Skincare, you agreed to use cookies in agreement with the Glazed Skincare's Privacy Policy.</p>
-      
-        <p>Most interactive websites use cookies to let us retrieve the user’s details for each visit. Cookies are used by our website to enable the functionality of certain areas to make it easier for people visiting our website. Some of our affiliate/advertising partners may also use cookies.</p>
-      
+
+        <p>We employ the use of cookies. By accessing Glazed Skincare, you agreed to use cookies in agreement with the
+            Glazed Skincare's Privacy Policy.</p>
+
+        <p>Most interactive websites use cookies to let us retrieve the user’s details for each visit. Cookies are used
+            by our website to enable the functionality of certain areas to make it easier for people visiting our
+            website. Some of our affiliate/advertising partners may also use cookies.</p>
+
         <h3>License</h3>
-      
-        <p>Unless otherwise stated, Glazed Skincare and/or its licensors own the intellectual property rights for all material on Glazed Skincare. All intellectual property rights are reserved. You may access this from Glazed Skincare for your own personal use subjected to restrictions set in these terms and conditions.</p>
-      
+
+        <p>Unless otherwise stated, Glazed Skincare and/or its licensors own the intellectual property rights for all
+            material on Glazed Skincare. All intellectual property rights are reserved. You may access this from Glazed
+            Skincare for your own personal use subjected to restrictions set in these terms and conditions.</p>
+
         <p>You must not:</p>
         <ul>
-          <li>Republish material from Glazed Skincare</li>
-          <li>Sell, rent, or sub-license material from Clazed SKincare</li>
-          <li>Reproduce, duplicate or copy material from Glazed Skincare</li>
-          <li>Redistribute content from Glazed Skincare</li>
+            <li>Republish material from Glazed Skincare</li>
+            <li>Sell, rent, or sub-license material from Clazed SKincare</li>
+            <li>Reproduce, duplicate or copy material from Glazed Skincare</li>
+            <li>Redistribute content from Glazed Skincare</li>
         </ul>
-      
+
         <h3>Hyperlinking to our Content</h3>
-      
+
         <p>The following organizations may link to our Website without prior written approval:</p>
         <ul>
-          <li>Government agencies;</li>
-          <li>Search engines;</li>
-          <li>News organizations;</li>
-          <li>Online directory distributors may link to our Website in the same manner as they hyperlink to the Websites of other listed businesses; and</li>
-          <li>System wide Accredited Businesses except soliciting non-profit organizations, charity shopping malls, and charity fundraising groups which may not hyperlink to our Web site.</li>
+            <li>Government agencies;</li>
+            <li>Search engines;</li>
+            <li>News organizations;</li>
+            <li>Online directory distributors may link to our Website in the same manner as they hyperlink to the
+                Websites of other listed businesses; and</li>
+            <li>System wide Accredited Businesses except soliciting non-profit organizations, charity shopping malls,
+                and charity fundraising groups which may not hyperlink to our Web site.</li>
         </ul>
-      
-        <p>These organizations may link to our home page, to publications, or to other Website information so long as the link: (a) is not in any way deceptive; (b) does not falsely imply sponsorship, endorsement, or approval of the linking party and its products and/or services; and (c) fits within the context of the linking party’s site.</p>
-      
+
+        <p>These organizations may link to our home page, to publications, or to other Website information so long as
+            the link: (a) is not in any way deceptive; (b) does not falsely imply sponsorship, endorsement, or approval
+            of the linking party and its products and/or services; and (c) fits within the context of the linking
+            party’s site.</p>
+
         <h3>iFrames</h3>
-      
-        <p>Without prior approval and written permission, you may not create frames around our Webpages that alter in any way the visual presentation or appearance of our Website.</p>
-      
+
+        <p>Without prior approval and written permission, you may not create frames around our Webpages that alter in
+            any way the visual presentation or appearance of our Website.</p>
+
         <h3>Content Liability</h3>
-      
-        <p>We shall not be hold responsible for any content that appears on your Website. You agree to protect and defend us against all claims that are rising on your Website. No link(s) should appear on any Website that may be interpreted as libelous, obscene or criminal, or which infringes, otherwise violates, or advocates the infringement or other violation of, any third party rights.</p>
-      
+
+        <p>We shall not be hold responsible for any content that appears on your Website. You agree to protect and
+            defend us against all claims that are rising on your Website. No link(s) should appear on any Website that
+            may be interpreted as libelous, obscene or criminal, or which infringes, otherwise violates, or advocates
+            the infringement or other violation of, any third party rights.</p>
+
         <h3>Your Privacy</h3>
-      
+
         <p>Please read our Privacy Policy</p>
-      
+
         <h3>Reservation of Rights</h3>
-      
-        <p>We reserve the right to request that you remove all links or any particular link to our Website. You approve to immediately remove all links to our Website upon request. We also reserve the right to amend these terms and conditions and its linking policy at any time. By continuously linking to our Website, you agree to be bound to and follow these linking terms and conditions.</p>
-      
+
+        <p>We reserve the right to request that you remove all links or any particular link to our Website. You approve
+            to immediately remove all links to our Website upon request. We also reserve the right to amend these terms
+            and conditions and its linking policy at any time. By continuously linking to our Website, you agree to be
+            bound to and follow these linking terms and conditions.</p>
+
         <h3>Removal of links from our website</h3>
-      
-        <p>If you find any link on our Website that is offensive for any reason, you are free to contact and inform us any moment. We will consider requests to remove links but we are not obligated to or so or to respond to you directly.</p>
-      
-        <p>We do not ensure that the information on this website is correct, we do not warrant its completeness or accuracy; nor do we promise to ensure that the website remains available or that the material on the website is kept up to date.</p>
-      
+
+        <p>If you find any link on our Website that is offensive for any reason, you are free to contact and inform us
+            any moment. We will consider requests to remove links but we are not obligated to or so or to respond to you
+            directly.</p>
+
+        <p>We do not ensure that the information on this website is correct, we do not warrant its completeness or
+            accuracy; nor do we promise to ensure that the website remains available or that the material on the website
+            is kept up to date.</p>
+
         <h3>Disclaimer</h3>
-      
-        <p>To the maximum extent permitted by applicable law, we exclude all representations, warranties, and conditions relating to our website and the use of this website. Nothing in this disclaimer will:</p>
+
+        <p>To the maximum extent permitted by applicable law, we exclude all representations, warranties, and conditions
+            relating to our website and the use of this website. Nothing in this disclaimer will:</p>
         <ul>
-          <li>limit or exclude our or your liability for death or personal injury;</li>
-          <li>limit or exclude our or your liability for fraud or fraudulent misrepresentation;</li>
-          <li>limit any of our or your liabilities in any way that is not permitted under applicable law; or</li>
-          <li>exclude any of our or your liabilities that may not be excluded under applicable law.</li>
+            <li>limit or exclude our or your liability for death or personal injury;</li>
+            <li>limit or exclude our or your liability for fraud or fraudulent misrepresentation;</li>
+            <li>limit any of our or your liabilities in any way that is not permitted under applicable law; or</li>
+            <li>exclude any of our or your liabilities that may not be excluded under applicable law.</li>
         </ul>
-      
-        <p>The limitations and prohibitions of liability set in this Section and elsewhere in this disclaimer: (a) are subject to the preceding paragraph; and (b) govern all liabilities arising under the disclaimer, including liabilities arising in contract, in tort, and for breach of statutory duty.</p>
-      
-        <p>As long as the website and the information and services on the website are provided free of charge, we will not be liable for any loss or damage of any nature.</p>
-      </div>
-      
- 
-      
+
+        <p>The limitations and prohibitions of liability set in this Section and elsewhere in this disclaimer: (a) are
+            subject to the preceding paragraph; and (b) govern all liabilities arising under the disclaimer, including
+            liabilities arising in contract, in tort, and for breach of statutory duty.</p>
+
+        <p>As long as the website and the information and services on the website are provided free of charge, we will
+            not be liable for any loss or damage of any nature.</p>
+    </div>
 
 
-      <div class="container">
+
+
+
+    <div class="columns-container">
         <div class="column">
             <h2>Contact Us</h2>
             <p> info@glazed.com</p>
-            <p><a  class="instagram"><i class="fa fa-instagram"></i></a><a href="https://instagram.com"> @glazed_skin</a></p>
-            <p><a  class="twitter"><i class="fa fa-twitter"></i></a> <a href="https://twitter.com">@glazed_skin</a></p>
-            <p><a  class="facebook"><i class="fa fa-facebook"></i></a> <a href="https://facebook.com">glazed_skin</a></p>
-            <p><a  class="youtube"><i class="fa fa-youtube"></i></a> <a href="https://youtube.com">glazed_skin</a></p>
+            <p><a class="instagram"><i class="fa fa-instagram"></i></a><a href="https://instagram.com"> @glazed_skin</a>
+            </p>
+            <p><a class="twitter"><i class="fa fa-twitter"></i></a> <a href="https://twitter.com">@glazed_skin</a></p>
+            <p><a class="facebook"><i class="fa fa-facebook"></i></a> <a href="https://facebook.com">glazed_skin</a></p>
+            <p><a class="youtube"><i class="fa fa-youtube"></i></a> <a href="https://youtube.com">glazed_skin</a></p>
         </div>
         <div class="column">
             <h2>Help</h2>
@@ -403,149 +445,18 @@
             <p><a href="terms.html">Terms and Conditions</a></p>
         </div>
         <div class="column">
-          <h2>Shopping</h2>
-          <span id="myBtn">Account</span>
-      
-          <div id="myModal" class="modal">
-              <div class="modal-content">
-                  <span class="close">&times;</span>
-                  <div class="container">
-                      <div class="row col-md-6 mx-auto">
-                          
-                              
-                              <div id="first">
-                                  <div class="panel panel-primary">
-                                      <div class="logo mb-3">
-                                          <div class="panel-heading text-center">
-                                              <h1>Login</h1>
-                                          </div>
-                                      </div>
-                                      <div class ="panel-body">
-                                      <form action="" method="post" name="login">
-                                          <div class="form-container">
-                                              <div class="form-group">
-                                                  <label for="exampleInputEmail1">Email address</label>
-                                                  <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-                                              </div>
-                                              <div class="form-group">
-                                                  <label for="exampleInputEmail1">Password</label>
-                                                  <input type="password" name="password" id="password" class="form-control" aria-describedby="emailHelp" placeholder="Enter Password">
-                                              </div>
-                                              <div class="text-center">
-                                                  <button type="submit" class="btn btn-block mybtn btn-primary tx-tfm">Login</button>
-                                              </div>
-                                              <div class="text-center">
-                                                  <div class="login-or">
-                                                      <hr class="hr-or">
-                                                      <span class="span-or">or</span>
-                                                  </div>
-                                              </div>
-                                              <div class="text-center">
-                                                  <p class="text-center">
-                                                      <a href="javascript:void();" class="google btn mybtn"><i class="fa fa-google-plus"></i> Signup using Google</a>
-                                                  </p>
-                                              </div>
-                                              <div class="form-group">
-                                                  <p class="text-center">Don't have an account? <a href="#" id="signup" onclick="toggleModals()">Sign up here</a></p>
-                                              </div>
-                                          </div>
-                                      </form>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div id="second" style="display: none;">
-                                  <div class="panel panel-primary">
-                                      <div class="logo mb-3">
-                                          <div class="panel-heading text-center">
-                                              <h1>Signup</h1>
-                                          </div>
-                                      </div>
-                                      <div class = "panel-body">
-                                      <form action="#" name="registration">
-                                          <div class="form-container">
-                                              <div class="form-group">
-                                                  <label for="exampleInputEmail1">First Name</label>
-                                                  <input type="text" name="firstname" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Enter Firstname">
-                                              </div>
-                                              <div class="form-group">
-                                                  <label for="exampleInputEmail1">Last Name</label>
-                                                  <input type="text" name="lastname" class="form-control" id="lastname" aria-describedby="emailHelp" placeholder="Enter Lastname">
-                                              </div>
-                                              <div class="form-group">
-                                                  <label for="exampleInputEmail1">Email address</label>
-                                                  <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-                                              </div>
-                                              <div class="form-group">
-                                                  <label for="exampleInputEmail1">Password</label>
-                                                  <input type="password" name="password" id="password" class="form-control" aria-describedby="emailHelp" placeholder="Enter Password">
-                                              </div>
-                                              <div class="form-group">
-                                                  <p class="text-center">By signing up you accept our <a href="terms.html">Terms and Conditions</a></p>
-                                              </div>
-                                              <div class="text-center mb-3">
-                                                  <button type="submit" class="btn btn-block mybtn btn-primary tx-tfm">Sign Up</button>
-                                              </div>
-                                              <div class="form-group">
-                                                  <p class="text-center"><a href="#" id="signin" onclick="toggleModals()">Already have an account?</a></p>
-                                              </div>
-                                          </div>
-                                      </form>
-                                      </div>
-                                  </div>
-                              </div>
-                          
-                      </div>
-                  </div>
-              </div>
-          </div>
-                  <p><a href="refund.html">Refund Policy</a></p>
-                  <p><a href="shipping.html">Shipping Policy</a></p>
-              </div>
-          </div>
-      </div>
-      
-      
-      
-      <script>
-      var label = document.getElementById("myBtn");
-      var modal = document.getElementById("myModal");
-      var span = document.getElementsByClassName("close")[0];
-      
-      // Attach click event listeners
-      label.addEventListener("click", function() {
-        modal.style.display = "block";
-      });
-      
-      span.addEventListener("click", function() {
-        modal.style.display = "none";
-      });
-      
-      // Close modal if clicked outside
-      window.addEventListener("click", function(event) {
-        if (event.target === modal) {
-          modal.style.display = "none";
-        }
-      });
-      
-      function toggleModals() {
-        var loginModal = document.getElementById("first");
-        var signupModal = document.getElementById("second");
-      
-        // Hide whichever modal is currently visible and show the other one
-        if (loginModal.style.display === "none") {
-          loginModal.style.display = "block";
-          signupModal.style.display = "none";
-        } else {
-          loginModal.style.display = "none";
-          signupModal.style.display = "block";
-        }
-      }
-      
-          </script>
-          <footer>
-         
-          <p>&copy; 2024 Glazed Skincare All rights reserved.</p>
-      </footer>
-          
-          </body>
-          </html>
+            <h2>Shopping</h2>
+            <p><a href="index.php">Account</a></p>
+            <p><a href="refund.html">Refund Policy</a></p>
+            <p><a href="shipping.html">Shipping Policy</a></p>
+        </div>
+    </div>
+    </div>
+    <footer>
+
+        <p>&copy; 2024 Glazed Skincare All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

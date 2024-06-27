@@ -571,7 +571,7 @@
             </div>
         </div>
 
-        <button class="place-order-btn">Place Order</button>
+        <input type="submit" value="Place Order">
     </form>
 
 
@@ -660,7 +660,9 @@
             }
         });
 
-        document.querySelector('.place-order-btn').addEventListener('click', () => {
+        document.querySelector('form.checkout').addEventListener('submit', function(event) {
+            event.preventDefault();
+
             const fullName = document.getElementById('full-name').value;
             const lastName = document.getElementById('last-name').value;
             const mobileNumber = document.getElementById('mobile-number').value;

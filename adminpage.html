@@ -1,0 +1,299 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Abril Fatface' rel='stylesheet'>
+    <title>Admin Page</title>
+    <style>
+         body {
+            background-color: #f4f4f9;
+            margin: 0;
+        }
+
+        h1 {
+            color: #38B6FF;
+            font-size: 40px;
+        }
+        main {
+    padding: 2rem;
+}
+
+h1, h2, h3 {
+    margin: 0 0 1rem 0;
+}
+
+.metrics {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+}
+
+.metric {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+canvas {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+        .topnav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .topnav a.logo {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .sidebar {
+            margin: 0;
+            padding: 0;
+            width: 200px;
+            background-color: rgba(169, 248, 255, 0.067);
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+        }
+
+        .sidebar a {
+            display: block;
+            color: black;
+            padding: 16px;
+            text-decoration: none;
+        }
+
+        .sidebar a.active,
+        .sidebar a:hover:not(.active) {
+            background-color: rgba(56, 182, 255, 0.5);
+            color: black;
+        }
+
+        div.content {
+            margin-left: 200px;
+            padding: 1px 16px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            flex: 1;
+            margin: 10px;
+        }
+
+        .card h3 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .card p {
+            font-size: 20px;
+            color: #666;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 12px;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        form h3 {
+            margin-top: 0;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input,
+        textarea,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: lightskyblue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #38B6FF;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="topnav">
+        <a class="logo">glazed skin and beauty</a>
+    </div>
+
+    <div class="sidebar">
+        <a class="active" href="adminpage.html">Dashboard</a>
+        <a href="product-management.php">Product Management</a>
+        <a href="image-management.html">Image Management</a>
+        <a href="page-management.php">Page Management</a>
+        <a href="order-management.html">Order Management</a>
+    </div>
+
+    <div class="content">
+        <div class="admin-container">
+        <header>
+            <h1>Website Analytics</h1>
+        </header>
+        <main>
+            <section>
+                <h2>Overview</h2>
+                <div class="metrics">
+                    <div class="metric">
+                        <h3>Total Visits</h3>
+                        <p id="total-visits">0</p>
+                    </div>
+                    <div class="metric">
+                        <h3>Unique Visitors</h3>
+                        <p id="unique-visitors">0</p>
+                    </div>
+                    <div class="metric">
+                        <h3>Bounce Rate</h3>
+                        <p id="bounce-rate">0%</p>
+                    </div>
+                    <div class="metric">
+                        <h3>Average Session Duration</h3>
+                        <p id="avg-session-duration">0m 0s</p>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2>Traffic Sources</h2>
+                <canvas id="traffic-sources-chart"></canvas>
+            </section>
+            <section>
+                <h2>Page Views</h2>
+                <canvas id="page-views-chart"></canvas>
+            </section>
+        </main>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+    // Simulated data
+    const totalVisits = 1200;
+    const uniqueVisitors = 800;
+    const bounceRate = 40;
+    const avgSessionDuration = { minutes: 3, seconds: 45 };
+
+    // Update metrics
+    document.getElementById('total-visits').textContent = totalVisits;
+    document.getElementById('unique-visitors').textContent = uniqueVisitors;
+    document.getElementById('bounce-rate').textContent = `${bounceRate}%`;
+    document.getElementById('avg-session-duration').textContent = `${avgSessionDuration.minutes}m ${avgSessionDuration.seconds}s`;
+
+    // Traffic sources chart
+    const trafficSourcesCtx = document.getElementById('traffic-sources-chart').getContext('2d');
+    new Chart(trafficSourcesCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Direct', 'Referral', 'Organic Search', 'Social'],
+            datasets: [{
+                data: [400, 200, 300, 300],
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                }
+            }
+        }
+    });
+
+    // Page views chart
+    const pageViewsCtx = document.getElementById('page-views-chart').getContext('2d');
+    new Chart(pageViewsCtx, {
+        type: 'line',
+        data: {
+            labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+            datasets: [{
+                label: 'Page Views',
+                data: [300, 400, 500, 600, 700, 800, 900],
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1,
+                fill: true,
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                x: {
+                    beginAtZero: true
+                },
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+});
+
+        </script>
+    </body>
+    </html>

@@ -1,311 +1,328 @@
-<!DOCTYPE html> 
-<html lang="en">
+<!DOCTYPE html>
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EYZT2CV7K5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-EYZT2CV7K5');
+    </script>
+    <html lang="en">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Glazed Skin & Beauty</title>
+    <link href='https://fonts.googleapis.com/css?family=Abril Fatface' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  
     <style>
-      
         body {
-            display: flex;
-            flex-direction: column;
-            margin: 0;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            background-color: #FFFFF0;
-            position: relative; 
-            min-height: 100vh; 
-        }
- 
-        /* navigation bar */
-        .topnav {
-            overflow: hidden;
-            background-color: #B0C4DE;
-            color: #B0C4DE;
-            position: relative;
-        } 
-
-        .topnav #myLinks {
-            display: none;
-        }
-
-        .topnav a {
-            color: black;
-            padding: 14px 16px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 17px;
-            display: block;
-        }
-
-
-        .topnav a.icon {
-            background: #B0C4DE;
-            display: block;
-            position: absolute;
-            right: 10;
-            top: 0;
-        }
-        
-        .topnav a:hover {
-            background-color: white;
-            color: black;
-        }
-        
-        .active{
-            background-color: #B0C4DE;
-            color: #B0C4DE;
-        }
-
-        
-        /*image gallery*/
-        .responsive {
-            padding: 0 6px;
-            width: 50%; 
-            float: none;
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-        }
-
-        .gallery {
-            border: none;
-            margin: 10px 0;
-        }
-               
-        .gallery {
-            border: 1px solid #ccc;
-        }
-        
-        .gallery:hover {
-            border: 0.5px solid #777;
-        }
-        
-        .gallery img {
-            width: 75%;
-            height: auto;
-        }
-        
-        .desc {
-            padding: 15px;
-            text-align: center;
-        }
-        
-        * {
-            box-sizing: border-box;
-        }
-        
-        .responsive {
-            padding: 0 6px;
-            float: left;
-            width: 24.99999%;
-        }
-        
-        @media only screen and (max-width: 700px) {
-          .responsive {
-            width: 50%;
-            margin: 2px 0;
-          }
-        }
-        
-        @media only screen and (max-width: 500px) {
-          .responsive {
-            width: 100%;
-          }
-        }
-        
-        .clearfix:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-
-        /* for the reviews of products */
-        .checked {
-            color: goldenrod;
-        }
-
-        .content {
-            flex: 1;
-        }
-
-        /* The contact us section*/
-        .container {
-            display: flex;
-            justify-content: space-around;
-            width: 80%;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            background-color: #f9f9f9;
-            margin-bottom: 20px;
-        }
-        .column {
-            flex: 1;
-            margin: 0 10px;
-        }
-        .column h2 {
-            margin-bottom: 10px;
-            font-size: 1.5em;
-            color: #333;
-        }
-        .column p, .column a {
-            margin: 5px 0;
-            font-size: 1.1em;
-            color: #555;
-            text-decoration: none;
-        }
-        .column a {
-            color: black;
-        }
-        .column a:hover {
-            text-decoration: underline;
-            color: #B0C4DE; 
-        }
-
-      /* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
-
-
-/* The Close Button */
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.column label { 
-  font-family: inherit; 
-  font-size: inherit;
-}
-.myform{
-		position: relative;
-		display: flex;
-		margin: 0 auto;
-		-ms-flex-direction: column;
-		flex-direction: column;
-		width: auto;
-		pointer-events: auto;
-		color: #B0C4DE;
-		border: 1px solid rgba(0,0,0,.2);
-		outline: 0;
-		max-width: 500px;
-        justify-content: center;
-		 }
-        
-         .tx-tfm{
-         text-transform:uppercase;
-         }
-         .mybtn{
-         border-radius:50px;
-         }
-        
-         .login-or {
-         position: relative;
-         color: #aaa;
-         margin-top: 10px;
-         margin-bottom: 10px;
-         padding-top: 10px;
-         padding-bottom: 10px;
-         }
-         .span-or {
-         display: block;
-         position: absolute;
-         left: 50%;
-         top: -2px;
-         margin-left: -25px;
-         background-color: #fff;
-         width: 50px;
-         text-align: center;
-         }
-         .hr-or {
-         height: 1px;
-         margin-top: 0px !important;
-         margin-bottom: 0px !important;
-         }
-
-         .google {
-         color:#666;
-         width:100%;
-         height:40px;
-         text-align:center;
-         outline:none;
-         border: 1px solid lightgrey;
-         }
-          form .error {
-         color: #ff0000;
-         }
-         #second{display:none;}
-          /* Footer */
-          footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            background-color: #B0C4DE;
-            text-align: center;
-            padding: 10px 0;
-        }
-     </style>
+        margin: 0;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color: #FFFFF0;
+        position: relative;
+        min-height: 100vh;
+      }
+      
+      h1 {
+        color: #38B6FF;
+        font-size: 40px;
+      }
+      
+      h4 {
+        text-align: center;
+      }
+      
+      /* navigation bar */
+      .topnav {
+        overflow: hidden;
+        background-color: rgba(56, 182, 255, 0.5);
+        font-family: 'Abril Fatface';
+        font-size: 22px;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+          padding: 0 10px;
+          z-index: 1000; 
+      }
+      
+      .topnav .logo {
+        margin-right: auto;
+        color: black;
+        text-decoration: none;
+      }
+      
+      .topnav .right-nav {
+          display: flex;
+          align-items: center;
+      }
+      
+      .topnav #myLinks {
+        display: none;
+        position: relative;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        top: 20px;
+        right: 10px;
+        width: 100%;
+      }
+      
+      .topnav a {
+        color: black;
+        padding: 14px 16px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 17px;
+        display: block;
+      }
+      
+      
+      .topnav a.icon {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        margin-right: 20px;
+        background: #38B6FF;
+        display: block;
+        position: absolute;
+        left: 10;
+        top: 0;
+      }
+      
+      .topnav .cart-icon {
+          margin-right: 20px; 
+          font-size: 24px;
+          cursor: pointer;
+      }
+      
+      .topnav a:hover {
+        background-color: white;
+        color: black;
+      }
+      
+      .active {
+        background-color: #B0C4DE;
+        color: #B0C4DE;
+      }
+      
+      /*cart side bar*/
+      .cart-sidebar {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 300px;
+        height: 100%;
+        background: #fff;
+        color: #000000;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        box-sizing: border-box;
+        transition: right 0.3s;
+        z-index: 2000;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      
+      .cart-sidebar.active {
+        right: 0;
+        background-color: #fff;
+      }
+      
+      .cart-sidebar h2 {
+        margin: 0;
+        text-align: center;
+      }
+      
+      .cart-sidebar ul {
+        list-style: none;
+        padding: 0;
+        flex-grow: 1;
+        overflow-y: auto;
+      }
+      
+      .cart-sidebar ul li {
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+      }
+      
+      .cart-sidebar ul li img {
+        width: 50px;
+        height: auto;
+        margin-right: 10px;
+      }
+      
+      .cart-sidebar .product-details {
+        flex: 1;
+      }
+      
+      .cart-sidebar .product-price {
+        font-weight: bold;
+      }
+      
+      .cart-sidebar .quantity-controls {
+        display: flex;
+        align-items: center;
+      }
+      
+      .cart-sidebar .quantity-controls button {
+        background: #50b3a2;
+        color: #fff;
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+        border-radius: 5px;
+        margin: 0 5px;
+      }
+      
+      .cart-sidebar .quantity-controls button:hover {
+        background: #3d8b81;
+      }
+      
+      .cart-sidebar #cart-total {
+        margin-top: 20px;
+        font-weight: bold;
+        text-align: center;
+      }
+      
+      .cart-sidebar #checkout-btn {
+        width: 100%;
+        padding: 10px;
+        background: #50b3a2;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        text-align: center;
+      }
+      
+      .cart-sidebar #checkout-btn:hover {
+        background: #3d8b81;
+      }
+      
+      .cart-sidebar .continue-shopping {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        color: #50b3a2;
+        text-decoration: none;
+      }
+      
+      .cart-sidebar .continue-shopping:hover {
+        text-decoration: underline;
+      }
+      /* The contact us section*/
+      .container {
+        display: flex;
+        justify-content: center; 
+        align-items: center; 
+        height: 50vh; 
+        background-color: #f9f9f9;
+      }
+      
+      .columns-container {
+        display: flex;
+        justify-content: space-around; 
+        align-items: flex-start; 
+      }
+      
+      .column {
+        flex: 1; 
+        margin: 0 10px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 400px; 
+      }
+      
+      .column h2 {
+        margin-bottom: 10px;
+        font-size: 1.5em;
+        color: #333;
+      }
+      
+      .column p,
+      .column a {
+        margin: 5px 0;
+        font-size: 1.1em;
+        color: #555;
+        text-decoration: none;
+      }
+      
+      .column a {
+        color: black;
+      }
+      
+      .column a:hover {
+        text-decoration: underline;
+        color: #B0C4DE;
+      }
+      
+      /* Footer */
+      footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: #B0C4DE;
+        text-align: center;
+        padding: 10px 0;
+      }
+      
+      </style>
 </head>
 
-<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
-<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
-<body> 
+<body>
 
 
-  <div class="topnav">
-    <a href="homepage.html" >glazed skincare</a>
-    <div id="myLinks">
-      <a href="skinconcern.html">Shop by skin concern</a>
-      <a href="product.html">Shop by products</a>
-      <a href="shopAll.html">Shop All</a>
+
+    <div class="topnav">
+        <a href="homepage.html" class="logo">glazed skin and beauty</a>
+        <div class="right-nav">
+            <a href="javascript:void(0);" class="shop-icon" onclick="myFunction()">Shop</a>
+            <div class="cart-icon" id="cart-icon">&#128722;</div>
+        </div>
+        <div id="myLinks">
+            <a href="shop_by_skinconcern.php">Shop by skin concern</a>
+            <a href="shop_by_product.php">Shop by products</a>
+            <a href="shop_all.php">Shop All</a>
+        </div>
     </div>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-      <i class="fa fa-bars"></i>
-    </a>
-  </div>
-  
-  <script>
-    function myFunction() {
-      var x = document.getElementById("myLinks");
-      if (x.style.display === "block") {
-        x.style.display = "none";
-      } else {
-        x.style.display = "block";
-      }
-    }
+
+    <div class="cart-sidebar" id="cart-sidebar">
+        <button class="close-btn" onclick="toggleCart()">&times;</button>
+        <h2>My Cart</h2>
+        <ul id="cart-items"></ul>
+        <div id="cart-total"></div>
+    </div>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myLinks");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
+
+        function toggleCart() {
+            var cartSidebar = document.getElementById("cart-sidebar");
+            if (cartSidebar.classList.contains("active")) {
+                cartSidebar.classList.remove("active");
+            } else {
+                cartSidebar.classList.add("active");
+            }
+        }
     </script>
-    
+
     <h1>Privacy Policy</h1>
 
 
@@ -316,227 +333,97 @@
     <p>POLICY. YOU CANNOT USE THIS WEBSITE IF YOU DO NOT ACCEPT THIS POLICY.</p>
     <p>ALL SECTIONS OF THIS POLICY ARE APPLICABLE TO BOTH MEMBERS AND</p>
     <p>GUESTS UNLESS THE SECTION EXPRESSLY STATES OTHERWISE.</p>
-  
+
     <h4>Introduction</h4>
     <p>This Privacy Policy is to be read as if specifically incorporated into the Terms of
-  Service.</p>
-  
-   <h4>Privacy Policy</h4>
+        Service.</p>
+
+    <h4>Privacy Policy</h4>
     <p>For the purposes of this section, Personal Information will be understood in
-  accordance with the definition provided in the Protection of Personal Information
-  Act 4 of 2013 (&quot;the Act&quot;). Glazed Africa also subscribes to the principles for
-  electronically collecting personal information outlined in the Act, and the further
-  legislation referred to therein. We endeavour to ensure the quality, accuracy and
-  confidentiality of Personal Information in our possession.</p>
-  
-  <p>2.2 In adopting this Privacy Policy, we wish to balance our legitimate business
-  interests and your reasonable expectation of privacy. Accordingly, we will take all
-  reasonable steps to prevent unauthorised access to, or disclosure of your
-  Personal Information. However, it is impossible to guarantee that your Personal
-  Information shall be 100% secure.</p>
-  
-  <p>2.3Users will be prompted to register an account with Glazed Africa. In so doing,
-  users may be asked to provide the following information (Personal Information):</p>
-  
-  <p>2.3.1 Firstname.</p>
-  
-  <p>2.3.2 Surname.</p>
-  
-  <p>2.3.3 Email.</p>
-  
-  <p>2.3.4 Sex.</p>
-  
-  <p>2.3.5 Age.</p>
-  
-  <p>2.3.6 Physical address.</p>
-  
-  <p>2.3.7 Phone number.</p>
-  
-  <p>2.3.8 Language.</p>
-  
-  <p>2.3.9 National, ethnic or social origin.</p>
-  
-  <p>2.3.10 Bank account details.</p>
-  
-  <p>2.3.11 Information relating to education.</p>
-  
-  <p>2.3.12 Employment history.</p>
-  
-  <p>2.3.13 Criminal history.</p>
-  
-  <p>2.3.14 Company / CC / business name.</p>
-  
-  <p>2.4 We will attempt to limit the types of Personal Information we process to only
-  that to which you consent to (for example, in the context of online registration,
-  newsletters, message boards, surveys, polls, professional announcements, SMS,
-  MMS and other mobile services), but, to the extent necessary, your agreement
-  to these this Privacy Policy constitutes your consent as contemplated in section
-  69 of the Act.  </p>
-  
-      
- 
-      
+        accordance with the definition provided in the Protection of Personal Information
+        Act 4 of 2013 (&quot;the Act&quot;). Glazed Africa also subscribes to the principles for
+        electronically collecting personal information outlined in the Act, and the further
+        legislation referred to therein. We endeavour to ensure the quality, accuracy and
+        confidentiality of Personal Information in our possession.</p>
+
+    <p>2.2 In adopting this Privacy Policy, we wish to balance our legitimate business
+        interests and your reasonable expectation of privacy. Accordingly, we will take all
+        reasonable steps to prevent unauthorised access to, or disclosure of your
+        Personal Information. However, it is impossible to guarantee that your Personal
+        Information shall be 100% secure.</p>
+
+    <p>2.3Users will be prompted to register an account with Glazed Africa. In so doing,
+        users may be asked to provide the following information (Personal Information):</p>
+
+    <p>2.3.1 Firstname.</p>
+
+    <p>2.3.2 Surname.</p>
+
+    <p>2.3.3 Email.</p>
+
+    <p>2.3.4 Sex.</p>
+
+    <p>2.3.5 Age.</p>
+
+    <p>2.3.6 Physical address.</p>
+
+    <p>2.3.7 Phone number.</p>
+
+    <p>2.3.8 Language.</p>
+
+    <p>2.3.9 National, ethnic or social origin.</p>
+
+    <p>2.3.10 Bank account details.</p>
+
+    <p>2.3.11 Information relating to education.</p>
+
+    <p>2.3.12 Employment history.</p>
+
+    <p>2.3.13 Criminal history.</p>
+
+    <p>2.3.14 Company / CC / business name.</p>
+
+    <p>2.4 We will attempt to limit the types of Personal Information we process to only
+        that to which you consent to (for example, in the context of online registration,
+        newsletters, message boards, surveys, polls, professional announcements, SMS,
+        MMS and other mobile services), but, to the extent necessary, your agreement
+        to these this Privacy Policy constitutes your consent as contemplated in section
+        69 of the Act. </p>
 
 
-  <div class="container">
-    <div class="column">
-        <h2>Contact Us</h2>
-        <p> info@glazed.com</p>
-        <p><a  class="instagram"><i class="fa fa-instagram"></i></a><a href="https://instagram.com"> @glazed_skin</a></p>
-        <p><a  class="twitter"><i class="fa fa-twitter"></i></a> <a href="https://twitter.com">@glazed_skin</a></p>
-        <p><a  class="facebook"><i class="fa fa-facebook"></i></a> <a href="https://facebook.com">glazed_skin</a></p>
-        <p><a  class="youtube"><i class="fa fa-youtube"></i></a> <a href="https://youtube.com">glazed_skin</a></p>
+
+
+
+
+    <div class="columns-container">
+        <div class="column">
+            <h2>Contact Us</h2>
+            <p> info@glazed.com</p>
+            <p><a class="instagram"><i class="fa fa-instagram"></i></a><a href="https://instagram.com"> @glazed_skin</a>
+            </p>
+            <p><a class="twitter"><i class="fa fa-twitter"></i></a> <a href="https://twitter.com">@glazed_skin</a></p>
+            <p><a class="facebook"><i class="fa fa-facebook"></i></a> <a href="https://facebook.com">glazed_skin</a></p>
+            <p><a class="youtube"><i class="fa fa-youtube"></i></a> <a href="https://youtube.com">glazed_skin</a></p>
+        </div>
+        <div class="column">
+            <h2>Help</h2>
+            <p><a href="faq.html">FAQ</a></p>
+            <p><a href="privacy.html">Privacy Policy</a></p>
+            <p><a href="terms.html">Terms and Conditions</a></p>
+        </div>
+        <div class="column">
+            <h2>Shopping</h2>
+            <p><a href="index.php">Account</a></p>
+            <p><a href="refund.html">Refund Policy</a></p>
+            <p><a href="shipping.html">Shipping Policy</a></p>
+        </div>
     </div>
-    <div class="column">
-        <h2>Help</h2>
-        <p><a href="faq.html">FAQ</a></p>
-        <p><a href="privacy.html">Privacy Policy</a></p>
-        <p><a href="terms.html">Terms and Conditions</a></p>
     </div>
-    <div class="column">
-      <h2>Shopping</h2>
-      <span id="myBtn">Account</span>
-  
-      <div id="myModal" class="modal">
-          <div class="modal-content">
-              <span class="close">&times;</span>
-              <div class="container">
-                  <div class="row col-md-6 mx-auto">
-                      
-                          
-                          <div id="first">
-                              <div class="panel panel-primary">
-                                  <div class="logo mb-3">
-                                      <div class="panel-heading text-center">
-                                          <h1>Login</h1>
-                                      </div>
-                                  </div>
-                                  <div class ="panel-body">
-                                  <form action="" method="post" name="login">
-                                      <div class="form-container">
-                                          <div class="form-group">
-                                              <label for="exampleInputEmail1">Email address</label>
-                                              <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-                                          </div>
-                                          <div class="form-group">
-                                              <label for="exampleInputEmail1">Password</label>
-                                              <input type="password" name="password" id="password" class="form-control" aria-describedby="emailHelp" placeholder="Enter Password">
-                                          </div>
-                                          <div class="text-center">
-                                              <button type="submit" class="btn btn-block mybtn btn-primary tx-tfm">Login</button>
-                                          </div>
-                                          <div class="text-center">
-                                              <div class="login-or">
-                                                  <hr class="hr-or">
-                                                  <span class="span-or">or</span>
-                                              </div>
-                                          </div>
-                                          <div class="text-center">
-                                              <p class="text-center">
-                                                  <a href="javascript:void();" class="google btn mybtn"><i class="fa fa-google-plus"></i> Signup using Google</a>
-                                              </p>
-                                          </div>
-                                          <div class="form-group">
-                                              <p class="text-center">Don't have an account? <a href="#" id="signup" onclick="toggleModals()">Sign up here</a></p>
-                                          </div>
-                                      </div>
-                                  </form>
-                                  </div>
-                              </div>
-                          </div>
-                          <div id="second" style="display: none;">
-                              <div class="panel panel-primary">
-                                  <div class="logo mb-3">
-                                      <div class="panel-heading text-center">
-                                          <h1>Signup</h1>
-                                      </div>
-                                  </div>
-                                  <div class = "panel-body">
-                                  <form action="#" name="registration">
-                                      <div class="form-container">
-                                          <div class="form-group">
-                                              <label for="exampleInputEmail1">First Name</label>
-                                              <input type="text" name="firstname" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Enter Firstname">
-                                          </div>
-                                          <div class="form-group">
-                                              <label for="exampleInputEmail1">Last Name</label>
-                                              <input type="text" name="lastname" class="form-control" id="lastname" aria-describedby="emailHelp" placeholder="Enter Lastname">
-                                          </div>
-                                          <div class="form-group">
-                                              <label for="exampleInputEmail1">Email address</label>
-                                              <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-                                          </div>
-                                          <div class="form-group">
-                                              <label for="exampleInputEmail1">Password</label>
-                                              <input type="password" name="password" id="password" class="form-control" aria-describedby="emailHelp" placeholder="Enter Password">
-                                          </div>
-                                          <div class="form-group">
-                                              <p class="text-center">By signing up you accept our <a href="terms.html">Terms and Conditions</a></p>
-                                          </div>
-                                          <div class="text-center mb-3">
-                                              <button type="submit" class="btn btn-block mybtn btn-primary tx-tfm">Sign Up</button>
-                                          </div>
-                                          <div class="form-group">
-                                              <p class="text-center"><a href="#" id="signin" onclick="toggleModals()">Already have an account?</a></p>
-                                          </div>
-                                      </div>
-                                  </form>
-                                  </div>
-                              </div>
-                          </div>
-                      
-                  </div>
-              </div>
-          </div>
-      </div>
-              <p><a href="refund.html">Refund Policy</a></p>
-              <p><a href="shipping.html">Shipping Policy</a></p>
-          </div>
-      </div>
-  </div>
-  
-  
-  
-  <script>
-  var label = document.getElementById("myBtn");
-  var modal = document.getElementById("myModal");
-  var span = document.getElementsByClassName("close")[0];
-  
-  // Attach click event listeners
-  label.addEventListener("click", function() {
-    modal.style.display = "block";
-  });
-  
-  span.addEventListener("click", function() {
-    modal.style.display = "none";
-  });
-  
-  // Close modal if clicked outside
-  window.addEventListener("click", function(event) {
-    if (event.target === modal) {
-      modal.style.display = "none";
-    }
-  });
-  
-  function toggleModals() {
-    var loginModal = document.getElementById("first");
-    var signupModal = document.getElementById("second");
-  
-    // Hide whichever modal is currently visible and show the other one
-    if (loginModal.style.display === "none") {
-      loginModal.style.display = "block";
-      signupModal.style.display = "none";
-    } else {
-      loginModal.style.display = "none";
-      signupModal.style.display = "block";
-    }
-  }
-  
-      </script>
-      <footer>
-     
-      <p>&copy; 2024 Glazed Skincare All rights reserved.</p>
-  </footer>
-      
-      </body>
-      </html>
+    <footer>
+
+        <p>&copy; 2024 Glazed Skincare All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

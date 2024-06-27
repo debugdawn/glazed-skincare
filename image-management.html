@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Abril Fatface' rel='stylesheet'>
+    <title>Image Management</title>
+    <style>
+        body {
+            background-color: #f4f4f9;
+            margin: 0;
+        }
+
+        h1 {
+            color: #38B6FF;
+            font-size: 40px;
+        }
+
+        .topnav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .topnav a.logo {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .sidebar {
+            margin: 0;
+            padding: 0;
+            width: 200px;
+            background-color: rgba(169, 248, 255, 0.067);
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+        }
+
+        .sidebar a {
+            display: block;
+            color: black;
+            padding: 16px;
+            text-decoration: none;
+        }
+
+        .sidebar a.active,
+        .sidebar a:hover:not(.active) {
+            background-color: rgba(56, 182, 255, 0.5);
+            color: black;
+        }
+
+        div.content {
+            margin-left: 200px;
+            padding: 1px 16px;
+        }
+
+        @media screen and (max-width: 700px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .sidebar a {
+                float: left;
+            }
+
+            div.content {
+                margin-left: 0;
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            .sidebar a {
+                text-align: center;
+                float: none;
+            }
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        form h3 {
+            margin-top: 0;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input,
+        textarea,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: lightskyblue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #38B6FF;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="topnav">
+        <a class="logo">glazed skin and beauty</a>
+    </div>
+
+    <div class="sidebar">
+        <a href="adminpage.html">Dashboard</a>
+        <a href="product-management.php">Product Management</a>
+        <a class="active" href="image-management.html">Image Management</a>
+        <a href="page-management.php">Page Management</a>
+        <a href="order-management.html">Order Management</a>
+    </div>
+
+    <div class="content">
+        <div class="admin-container">
+            <h1>Home Page Management</h1>
+            <section id="image-update">
+                <h2>Update Hero Images</h2>
+                <form id="update-hero-image-form" action="update_hero_image.php" method="post">
+                    <label for="hero-image-url">New Hero Image URL:</label>
+                    <input type="text" id="hero-image-url" name="hero_image_url" required>
+                    <label for="page-name">Page Name:</label>
+                    <input type="text" id="page-name" name="page_name" required>
+                    <button type="submit">Update Image</button>
+                </form>
+
+                <h2>Update Slideshow Images</h2>
+                <form id="update-hero-image-form" action="update_hero_image.php" method="post">
+                    <label for="hero-image-url">New Slideshow Images URL</label>
+                    <input type="text" id="hero-image-url" name="hero_image_url" required>
+                    <label for="page-name">Slide Number:</label>
+                    <input type="text" id="page-name" name="page_name" required>
+                    <button type="submit">Update Image</button>
+                </form>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>

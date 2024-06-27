@@ -1,0 +1,50 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>shop_all</title><link rel="stylesheet" href="styles.css"></head><body>
+        <div class="topnav">
+          <a href="homepage.html" class="logo">glazed skin and beauty</a>
+          <div class="right-nav">
+            <a href="javascript:void(0);" class="shop-icon" onclick="myFunction()">Shop</a>
+            <div class="cart-icon" id="cart-icon">&#128722;</div>
+          </div>
+          <div id="myLinks">
+            <a href="skinconcern.html">Shop by skin concern</a>
+            <a href="product.html">Shop by products</a>
+            <a href="shopAll.html">Shop All</a>
+          </div>
+        </div>
+
+        <div class="cart-sidebar" id="cart-sidebar">
+          <h2>My Shopping Cart</h2>
+          <ul id="cart-items"></ul>
+          <div id="cart-total">Total: R0.00</div>
+          <button id="checkout-btn">Checkout Now</button>
+          <a class="close-btn" id="close-btn">Continue Shopping</a>
+        </div>
+
+        <script>
+          function myFunction() {
+            var x = document.getElementById("myLinks");
+            if (x.style.display === "block") {
+              x.style.display = "none";
+            } else {
+              x.style.display = "block";
+            }
+          }
+
+          function toggleCart() {
+            var cartSidebar = document.getElementById("cart-sidebar");
+            if (cartSidebar.classList.contains("active")) {
+              cartSidebar.classList.remove("active");
+            } else {
+              cartSidebar.classList.add("active");
+            }
+          }
+        </script>
+
+        <div class="hero" style="background-image: url('images/skin.jpg');">
+          <div class="hero-text">
+            <h1>shop_all</h1>
+            <p>shop now</p>
+          </div>
+        </div>
+      </body>
+    </html>
